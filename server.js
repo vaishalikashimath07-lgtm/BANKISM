@@ -2,7 +2,7 @@
 const express = require("express");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -112,6 +112,6 @@ app.post("/api/check", (req, res) => {
     res.json(verdict);
 });
 
-app.listen(PORT, () => {
-    console.log(`Bankism server running at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Bankism server running on port ${PORT}`);
 });
